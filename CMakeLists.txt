@@ -5,6 +5,7 @@ set(SRCS
     client_bw.cpp
     cpucounters.cpp
     cpucounterstest.cpp
+    freegetopt/getopt.c
     memoptest.cpp
     msr.cpp
     msrtest.cpp
@@ -33,6 +34,10 @@ if (WIN32)
        PCM-TSX_Win/pcm-tsx-win.cpp
        PCM-TSX_Win/stdafx.cpp
        PCM_Win/pcm.cpp
+
+./freegetopt/getopt.c
+./MacMSRDriver/DriverInterface.c
+
        PCM_Win/stdafx.cpp)
 endif ()
 if (UNIX)
@@ -65,7 +70,9 @@ if (WIN32)
        PCM-TSX_Win/pcm-tsx-win.cpp
        PCM-TSX_Win/stdafx.cpp
        PCM_Win/pcm.cpp
-       PCM_Win/stdafx.cpp)
+       PCM_Win/stdafx.cpp
+       WinMSRDriver/Win7/msrmain.c
+       WinMSRDriver/WinXP/msrmain.c)
 endif ()
 add_library(intel_pcm ${SRCS})
 set(LIBRARIES)
@@ -76,6 +83,7 @@ if (APPLE)
   add_library(pcm_msr_driver ${PCM_MSR_DRIVER_SRCS})
   target_link_libraries(intel_pcm pcm_msr_driver)
   set(PCM_MSR_LIBRARY_SRCS
+      MacMSRDriver/DriverInterface.c
       MacMSRDriver/MSRAccessor.cpp
       MacMSRDriver/PCIDriverInterface.cpp)
   add_library(pcm_msr_library ${PCM_MSR_LIBRARY_SRCS})
