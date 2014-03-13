@@ -34,10 +34,6 @@ if (WIN32)
        PCM-TSX_Win/pcm-tsx-win.cpp
        PCM-TSX_Win/stdafx.cpp
        PCM_Win/pcm.cpp
-
-./freegetopt/getopt.c
-./MacMSRDriver/DriverInterface.c
-
        PCM_Win/stdafx.cpp)
 endif ()
 if (UNIX)
