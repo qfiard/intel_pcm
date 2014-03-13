@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(intel_pcm)
 # Library target.
-set(SRCS ${SRC_DIR}/cpucounters.cpp)
+set(SRCS cpucounters.cpp)
 add_library(intel_pcm ${SRCS})
 install(TARGETS intel_pcm
         ARCHIVE DESTINATION lib
