@@ -59,7 +59,7 @@ ClientBW::~ClientBW() {}
 
 #elif __APPLE__
 
-#include "PCIDriverInterface.h"
+#include "MacMSRDriver/PCIDriverInterface.h"
 
 #define CLIENT_BUS			0
 #define CLIENT_DEV			0
