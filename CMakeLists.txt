@@ -68,6 +68,7 @@ if (WIN32)
        PCM_Win/stdafx.cpp)
 endif ()
 add_library(intel_pcm ${SRCS})
+set(LIBRARIES)
 if (APPLE)
   set(PCM_MSR_DRIVER_SRCS
       MacMSRDriver/PcmMsr/PcmMsr.cpp
@@ -82,6 +83,12 @@ if (APPLE)
   find_path(IOKIT_IOLIB_INCLUDE_DIR IOKit/IOLib.h)
   set_target_properties(
       pcm_msr_driver PROPERTIES COMPILE_FLAGS "-I${IOKIT_IOLIB_INCLUDE_DIR}/..")
+  list(APPEND LIBRARIES $<TARGET_FILE:pcm_msr_driver> $<TARGET_FILE:pcm_msr_library>)
+endif ()
+
+if (NOT BUILD_SHARED_LIBS)
+  include(cmake/MergeStaticLibraries.cmake)
+  merge_static_libraries(intel_pcm ALL "${LIBRARIES}")
 endif ()
 
 install(TARGETS intel_pcm
