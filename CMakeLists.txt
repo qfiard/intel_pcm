@@ -90,7 +90,7 @@ if (APPLE)
   list(APPEND LIBRARIES $<TARGET_FILE:pcm_msr_driver> $<TARGET_FILE:pcm_msr_library>)
 endif ()
 
-if (NOT BUILD_SHARED_LIBS)
+if (NOT BUILD_SHARED_LIBS AND LIBRARIES)
   include(cmake/MergeStaticLibraries.cmake)
   merge_static_libraries(intel_pcm ALL "${LIBRARIES}")
 endif ()
