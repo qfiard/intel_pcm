@@ -27,7 +27,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifdef _MSC_VER
 #include "windows.h"
 #elif __APPLE__
-#include <MSRAccessor.h>
+#include "MacMSRDriver/MSRAccessor.h"
 #endif
 
 

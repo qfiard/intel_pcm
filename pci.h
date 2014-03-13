@@ -28,11 +28,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #ifdef _MSC_VER
 #include "windows.h"
 #else
-#include <unistd.h> 
+#include <unistd.h>
 #endif
 
 #ifdef __APPLE__
-#include "PCIDriverInterface.h"
+#include "MacMSRDriver/PCIDriverInterface.h"
 #define PCI_VENDOR_ID_INTEL 0x8086
 #endif
 
