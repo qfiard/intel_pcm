@@ -95,6 +95,9 @@ if (NOT BUILD_SHARED_LIBS AND LIBRARIES)
   merge_static_libraries(intel_pcm ALL "${LIBRARIES}")
 endif ()
 
+add_executable(cpucounterstest cpucounterstest.cpp)
+target_link_libraries(cpucounterstest intel_pcm)
+
 install(TARGETS intel_pcm
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib)
