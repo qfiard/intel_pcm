@@ -96,7 +96,8 @@ if (NOT BUILD_SHARED_LIBS AND LIBRARIES)
 endif ()
 
 add_executable(cpucounterstest cpucounterstest.cpp)
-target_link_libraries(cpucounterstest intel_pcm)
+set_target_properties(cpucounterstest PROPERTIES EXCLUDE_FROM_ALL TRUE)
+target_link_libraries(cpucounterstest intel_pcm pthread)
 
 install(TARGETS intel_pcm
         ARCHIVE DESTINATION lib
