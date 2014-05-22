@@ -16,6 +16,8 @@
 #ifndef pci_driver_driverinterface_h
 #define pci_driver_driverinterface_h
 
+#include <stdint.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
